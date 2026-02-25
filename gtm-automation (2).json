@@ -1,0 +1,965 @@
+{
+  "name": "gtm-automation",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "maxTokens": 300,
+          "responseFormat": "json_object",
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -48,
+        176
+      ],
+      "id": "604e2262-2e17-4add-927b-f03b076ac0e3",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "epQEBTmyQVJzk2Ze",
+          "name": "OpenRouter account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "maxItems": 10
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        -336,
+        0
+      ],
+      "id": "6b6e237e-2699-4218-a9f5-a641e21cb9d7",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "a5ab0528-3c47-467e-859a-5e4d61b55db5",
+                    "leftValue": "={{ $json.seniority }}",
+                    "rightValue": "CEO",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "C-Level"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "53dcda23-df86-48e9-b899-dab91ded29a6",
+                    "leftValue": "={{ $json.seniority }}",
+                    "rightValue": "Founder",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "C-Level"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ef88adcb-9cea-427b-aaed-4518f36381ac",
+                    "leftValue": "={{ $json.seniority }}",
+                    "rightValue": "VP",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "VP"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "e6549be5-9581-466e-9400-661be26f5804",
+                    "leftValue": "={{ $json.seniority }}",
+                    "rightValue": "Director",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Director"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ec379234-323f-432b-b659-02ab81594fb5",
+                    "leftValue": "={{ $json.seniority }}",
+                    "rightValue": "Head",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Director"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "2cf9e165-7f1f-4ef0-bc92-912602d4ef27",
+                    "leftValue": "={{ $json.seniority }}",
+                    "rightValue": "Manager",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Manager"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "5f8e3db7-5ca4-4f82-b081-1c508a0ced66",
+                    "leftValue": "={{ $json.seniority }}",
+                    "rightValue": "Executive",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "C-Level"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "698e6d6a-6c3a-49d1-84d8-afbb87576c1f",
+                    "leftValue": "={{ $json.seniority }}",
+                    "rightValue": ".*   ",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notRegex"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "IC"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none",
+          "ignoreCase": true
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        288,
+        -96
+      ],
+      "id": "70f67f9e-dec5-4ee8-b348-dd2a8f083c8e",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxTokens": 250,
+          "responseFormat": "json_object",
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        768,
+        208
+      ],
+      "id": "364a5dcc-d0a8-4da3-82f3-b1d72c014bc5",
+      "name": "OpenRouter Chat Model1",
+      "credentials": {
+        "openRouterApi": {
+          "id": "epQEBTmyQVJzk2Ze",
+          "name": "OpenRouter account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxTokens": 300,
+          "responseFormat": "json_object",
+          "temperature": 0.7
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1136,
+        224
+      ],
+      "id": "18fa8af3-f6f1-4651-a4f3-dc8cf26b89d0",
+      "name": "OpenRouter Chat Model2",
+      "credentials": {
+        "openRouterApi": {
+          "id": "epQEBTmyQVJzk2Ze",
+          "name": "OpenRouter account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxTokens": 300,
+          "responseFormat": "text",
+          "temperature": 0.4
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1456,
+        240
+      ],
+      "id": "ee69069b-4871-41a8-ba5a-bc5344de52d1",
+      "name": "OpenRouter Chat Model3",
+      "credentials": {
+        "openRouterApi": {
+          "id": "epQEBTmyQVJzk2Ze",
+          "name": "OpenRouter account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1F7nN6NE3gdWj1JvjOjrO2QfyrgEEhdPlcSrSNVlJxMg",
+          "mode": "list",
+          "cachedResultName": "outreach",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1F7nN6NE3gdWj1JvjOjrO2QfyrgEEhdPlcSrSNVlJxMg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1F7nN6NE3gdWj1JvjOjrO2QfyrgEEhdPlcSrSNVlJxMg/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Linkedin_Message": "={{ $json.text }}",
+            "Title": "={{$('Merge').item.json.seniority }}",
+            "Name": "={{ $('Limit').item.json.Name  }}",
+            "Company": "={{ $('Limit').item.json.Company }}",
+            "Email_Subject": "={{ $('email-ai').item.json.subject }}",
+            "Email_Body": "={{ $('email-ai').item.json.body }}"
+          },
+          "matchingColumns": [
+            "Title"
+          ],
+          "schema": [
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email_Subject",
+              "displayName": "Email_Subject",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email_Body",
+              "displayName": "Email_Body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Linkedin_Message",
+              "displayName": "Linkedin_Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "locationDefine": {
+            "values": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1920,
+        32
+      ],
+      "id": "dd30c3cf-0bc8-4f61-b170-91ba1a0247a3",
+      "name": "Store Outreach Messages",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "vzpSpEsDERT7ESQi",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a LinkedIn outreach writer.\nWrite a 2-line connection request message.\n\nPersona Summary: {{$('persona-ai').item.json.persona  }}\nRole: {{$('Merge').item.json.seniority   }}\nIndustry: {{$('Merge').item.json.industry }}\n\nRules:\n- No selling.\n- No pitching.\n- Just relevance + context.\n- Under 240 characters.\n- Do NOT mention Anakin.\n\nMessage format:\nLine 1 : Hy ! \nLine 2: Personalized hook based on their role or work.\nLine 3: Soft context: “Would love to connect if you are exploring pricing/benchmarking insights.”",
+        "hasOutputParser": true,
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        1456,
+        32
+      ],
+      "id": "b7f91d34-e1e5-4e04-bed7-68f7c9b0b8e8",
+      "name": "linkedin-ai"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an outreach assistant.\nGenerate a short personalized email for this persona.\n\nPersona Summary: {{ $json.persona }}\nSeniority: {{$('Merge').item.json.seniority }}\nIndustry: {{$('Merge').item.json.industry  }}\nSignals: {{$('Merge').item.json.signals}}\n\nRules:\n- Return the output ONLY in JSON with keys \"subject\" and \"body\".\n- Subject must be a short, personalized line.\n- Body must be 5–7 lines max, conversational, not pushy.\n- Do NOT mention any company names.\n- End with: “Once this seems relevant, I can introduce you to a YC-backed company specializing in this.”\n\nFormat:\n{\n  \"subject\": \"...\",\n  \"body\": \"...\"\n}",
+        "hasOutputParser": true,
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        1136,
+        32
+      ],
+      "id": "d648ea8d-99cb-4b1f-b2a0-e6c4bbf63536",
+      "name": "email-ai"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an assistant generating outreach personalization for GTM automation.\n\nUsing the following enriched data, create a json respponse:\n1. A SHORT persona (1 line)\n2. A context summary (2–3 lines)\n3. Three strong personalization themes (bullet points)\n\nMake the content factual only. Avoid assumptions.\n\nDATA:\n\nDATA:\nName: {{ $('Limit').item.json.Name }}\nTitle: {{ $('Merge').item.json.seniority }}\nCompany: {{ $('Limit').item.json.Company }}\nLinkedin: {{ $('Limit').item.json.Linkedin }}\n\nJob_History: {{ $json.job_history }}\nIndustry: {{ $json.industry }}\nSignals: {{ $json.signals }}\n\nReturn JSON ONLY in this format:\n\n{\n  \"persona\": \"...\",\n  \"summary\": \"...\",\n  \"theme\": \"...\"\n}\n",
+        "hasOutputParser": true,
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        768,
+        32
+      ],
+      "id": "67ebaf02-32a0-4f36-bd62-0b9b9e34cdd4",
+      "name": "persona-ai"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Extract job history from this LinkedIn profile or person's info.\n\nName: {{$json[\"Name\"]}}\nTitle: {{$json.Title}}\nCompany: {{$json[\"Company\"]}}\nLinkedIn: {{$json[\"Linkedin\"]}}\n\nReturn JSON ONLY in this format:\n\n{\n  \"job_history\": \"...\",\n  \"seniority\": \"...\",\n  \"industry\": \"...\",\n  \"signals\": \"...\"\n}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Extract job history from this LinkedIn profile or person's info.  Name: {{$json[\"Name\"]}} Title: {{$json[\"Title\"]}} Company: {{$json[\"Company\"]}} LinkedIn: {{$json[\"Linkedin\"]}}  Return JSON ONLY in this format:  {   \"job_history\": \"...\",   \"seniority\": \"...\",   \"industry\": \"...\",   \"signals\": \"...\" }"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -48,
+        0
+      ],
+      "id": "3e264e38-dd65-41c2-9f2d-31c23a829dd9",
+      "name": "position-ai"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1MsMxQpdLGLOHJ3p9lQXZCrAtioocMx1xJmTl3JtUukw",
+          "mode": "list",
+          "cachedResultName": "Techsparks",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MsMxQpdLGLOHJ3p9lQXZCrAtioocMx1xJmTl3JtUukw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 314096696,
+          "mode": "list",
+          "cachedResultName": "techsparks",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MsMxQpdLGLOHJ3p9lQXZCrAtioocMx1xJmTl3JtUukw/edit#gid=314096696"
+        },
+        "includeInOutput": "both",
+        "options": {
+          "columnsToWatch": [],
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "specifyRangeA1",
+              "range": "A:E"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -784,
+        16
+      ],
+      "id": "54695694-63b8-4a9a-98f5-dbbb6586bfad",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "fN2w09R9pZUtc3sG",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "859130ea-185d-4077-b940-719df431d7cd",
+              "leftValue": "={{$json[\"Processed\"]}}",
+              "rightValue": "(blank)",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -560,
+        16
+      ],
+      "id": "cc15b116-f6a4-49ad-ab66-5f35183f03bb",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1MsMxQpdLGLOHJ3p9lQXZCrAtioocMx1xJmTl3JtUukw",
+          "mode": "list",
+          "cachedResultName": "Techsparks",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MsMxQpdLGLOHJ3p9lQXZCrAtioocMx1xJmTl3JtUukw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 314096696,
+          "mode": "list",
+          "cachedResultName": "techsparks",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MsMxQpdLGLOHJ3p9lQXZCrAtioocMx1xJmTl3JtUukw/edit#gid=314096696"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Processed": "Y",
+            "Name": "={{ $('Limit').item.json.Name }}"
+          },
+          "matchingColumns": [
+            "Name"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Linkedin",
+              "displayName": "Linkedin",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TitleCompany",
+              "displayName": "TitleCompany",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "LinkedInRaw",
+              "displayName": "LinkedInRaw",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "locationDefine": {
+            "values": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2256,
+        32
+      ],
+      "id": "2abc00f1-fa75-4432-b48e-4a9e5bf41d53",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "vzpSpEsDERT7ESQi",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 8
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        592,
+        -96
+      ],
+      "id": "71c19786-ec37-4b13-9b41-d0f95a8ae14b",
+      "name": "Merge"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "position-ai",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "position-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "persona-ai",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 5
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 6
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 7
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "email-ai",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "linkedin-ai",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "linkedin-ai": {
+      "main": [
+        [
+          {
+            "node": "Store Outreach Messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "email-ai": {
+      "main": [
+        [
+          {
+            "node": "linkedin-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "persona-ai": {
+      "main": [
+        [
+          {
+            "node": "email-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "position-ai": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store Outreach Messages": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "persona-ai",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "a50c719b-cde0-4d22-ab1e-d84de63e6c0d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "310468d899a9a10c27a5ddc4a0304c3cc3fbb21d2f5878ae3ff0084ae0c72875"
+  },
+  "id": "jxfH3yy9D0kItiJZ",
+  "tags": []
+}
